@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar color="dark">
+    <ion-title>
+      Tareas
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let tarea of tareas">
+    <ion-card-header>
+      <h1>
+        {{ tarea.titulo + " " + tarea.descripcion }}
+      </h1>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <h2>{{ tarea.fechaInicial }}</h2>
+        </ion-item>
+        <ion-item>
+          <h2>{{ tarea.fechaFinal }}</h2>
+        </ion-item>
+        <ion-item>
+          <button ion-button full color="ligth"
+            (click)="verFormulario(tarea.idTarea)">
+            Ver mas...
+          </button>
+          <button (click)="eliminarTarea(tarea.idTarea)">Eliminar</button>
+        </ion-item>
+      </ion-list>
+
+    </ion-card-content>
+  </ion-card>
+
+  <ion-fab right bottom>
+   <button ion-fab color="dark" (click)="verFormulario('nuevo')">
+     <ion-icon name="md-add"></ion-icon>
+   </button>
+ </ion-fab>
+
+</ion-content>

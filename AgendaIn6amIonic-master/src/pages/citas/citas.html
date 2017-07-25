@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar color="dark">
+    <ion-title>
+      Citas
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let cita of citas">
+    <ion-card-header>
+      <h1>
+        {{ cita.lugar+ + " " + cita.fecha }}
+      </h1>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <h2>{{ cita.lugar }}</h2>
+        </ion-item>
+        <ion-item>
+          <h2>{{ cita.fecha }}</h2>
+        </ion-item>
+        <ion-item>
+          <button ion-button full color="ligth"
+            (click)="verFormulario(cita.idCita)">
+            Ver mas...
+          </button>
+          <button (click)="eliminarCita(cita.idCita)">Eliminar</button>
+
+        </ion-item>
+      </ion-list>
+
+    </ion-card-content>
+  </ion-card>
+
+  <ion-fab right bottom>
+   <button ion-fab color="dark" (click)="verFormulario('nuevo')">
+     <ion-icon name="md-add"></ion-icon>
+   </button>
+ </ion-fab>
+
+</ion-content>
